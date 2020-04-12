@@ -1,0 +1,5 @@
+const val kotlinVersion = "1.3.71"
+const val roomVersion = "2.2.5"
+const val retrofitVersion = "2.5.0"
+const val coroutinesVersion = "1.3.3"
+const val koinVersion = "2.0.1"
