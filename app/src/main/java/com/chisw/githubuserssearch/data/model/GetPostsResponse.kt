@@ -1,20 +1,19 @@
 package com.chisw.githubuserssearch.data.model
 
 data class GetPostsResponse(
-    val hits: List<Hit>,
-    val page: Int,
-    val nbPages: Int,
-    val hitsPerPage: Int
+    val items: List<Item>,
+    val incomplete_results: Boolean,
+    val total_count: Int
 )
 
-data class Hit(val created_at: String, val title: String, val author: String) {
+data class Item(val login: String, val id: Int, val avatar_url: String) {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other == null || javaClass != other.javaClass) return false
-        other as Hit
-        return created_at == other.created_at && title == other.title && author == other.author
+        other as Item
+        return login == other.login && avatar_url == other.avatar_url && id == other.id
     }
 
-    override fun hashCode(): Int = created_at.hashCode() + title.hashCode() + author.hashCode()
+    override fun hashCode(): Int = login.hashCode() + avatar_url.hashCode() + id.hashCode()
 }

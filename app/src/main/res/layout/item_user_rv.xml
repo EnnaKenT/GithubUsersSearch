@@ -4,47 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp">
+    android:layout_margin="@dimen/items_padding">
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingEnd="5dp"
+    <ImageView
+        android:id="@+id/avatarIv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:checked="true"
-        tools:ignore="RtlSymmetry" />
+        app:layout_constraintWidth_percent="0.2"
+        tools:ignore="ContentDescription"
+        tools:src="@mipmap/ic_launcher" />
 
     <TextView
-        android:id="@+id/titleTv"
+        android:id="@+id/loginTv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingBottom="5dp"
+        android:layout_marginStart="@dimen/items_padding"
+        android:paddingBottom="@dimen/items_padding"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/checkBox"
+        app:layout_constraintStart_toEndOf="@id/avatarIv"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Title:\nTitle long sentence" />
-
-    <TextView
-        android:id="@+id/authorTv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:maxLines="2"
-        android:paddingBottom="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/checkBox"
-        app:layout_constraintTop_toBottomOf="@id/titleTv"
-        tools:text="Author:\nJohn Doe" />
-
-    <TextView
-        android:id="@+id/createdAtTv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:maxLines="2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/checkBox"
-        app:layout_constraintTop_toBottomOf="@id/authorTv"
-        tools:text="Created at:\n21/12/20020" />
+        tools:text="long login sentence" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

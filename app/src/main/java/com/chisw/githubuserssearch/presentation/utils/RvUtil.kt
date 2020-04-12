@@ -1,4 +1,4 @@
-package com.chisw.githubuserssearch.presentation.screens.utils
+package com.chisw.githubuserssearch.presentation.utils
 
 import android.content.Context
 import androidx.recyclerview.widget.DividerItemDecoration
