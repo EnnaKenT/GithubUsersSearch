@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface GitHubApi {
 
-    @GET("/search/users?q=Tetris&type=Users&sort=stars&order=desc&page=0&per_page=100")
+    @GET("/search/users")
     fun getUsersByLogin(
         @Query("q") login: String,
         @Query("type") type: String,
