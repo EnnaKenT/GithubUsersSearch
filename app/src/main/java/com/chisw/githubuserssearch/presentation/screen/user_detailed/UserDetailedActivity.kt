@@ -24,19 +24,15 @@ class UserDetailedActivity : BaseActivity(R.layout.activity_user_detailed) {
     }
 
     private fun setFollowers(count: Int) {
-        if (count > 0) {
-            followersTv.text = getString(R.string.followers_format, count.toString())
-            followersTv.show(true)
-            showProgressBar(false)
-        }
+        followersTv.text = getString(R.string.followers_format, count.toString())
+        followersTv.show(true)
+        showProgressBar(false)
     }
 
     private fun setRepos(count: Int) {
-        if (count > 0) {
-            publicReposTv.text = getString(R.string.public_repositories_format, count.toString())
-            publicReposTv.show(true)
-            showProgressBar(false)
-        }
+        publicReposTv.text = getString(R.string.public_repositories_format, count.toString())
+        publicReposTv.show(true)
+        showProgressBar(false)
     }
 
     private fun showProgressBar(isVisible: Boolean) = progressBar.show(isVisible)
