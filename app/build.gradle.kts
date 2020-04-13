@@ -39,6 +39,7 @@ dependencies {
     implementation("com.google.android.material:material:1.2.0-alpha05")
     implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta4")
 
+    implementation("com.squareup.okhttp3:okhttp:4.5.0")
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
     implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")

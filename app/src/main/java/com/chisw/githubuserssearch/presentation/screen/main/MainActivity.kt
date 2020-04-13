@@ -5,18 +5,18 @@ import android.widget.SearchView
 import androidx.lifecycle.observe
 import com.chisw.githubuserssearch.R
 import com.chisw.githubuserssearch.domain.model.User
-import com.chisw.githubuserssearch.presentation.viewModel.UsersViewModel
 import com.chisw.githubuserssearch.presentation.screen.base.activity.BaseActivity
 import com.chisw.githubuserssearch.presentation.screen.main.adapter.UsersAdapter
 import com.chisw.githubuserssearch.presentation.utils.addItemDecoration
 import com.chisw.githubuserssearch.presentation.utils.setBottomBarExpandListener
 import com.chisw.githubuserssearch.presentation.utils.show
+import com.chisw.githubuserssearch.presentation.viewModel.UserSearchViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity(R.layout.activity_main), SearchView.OnQueryTextListener {
 
-    private val viewModel: UsersViewModel by viewModel()
+    private val viewModel: UserSearchViewModel by viewModel()
     private val adapter by lazy {
         UsersAdapter(viewModel::requestNextPageUsers, ::onAdapterItemClicked)
     }

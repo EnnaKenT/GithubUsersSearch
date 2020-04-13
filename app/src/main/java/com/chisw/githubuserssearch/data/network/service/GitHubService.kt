@@ -1,9 +1,8 @@
 package com.chisw.githubuserssearch.data.network.service
 
-import com.chisw.githubuserssearch.data.network.model.NetworkUsers
 import com.chisw.githubuserssearch.data.network.api.GitHubApi
+import com.chisw.githubuserssearch.data.network.model.NetworkUsers
 import retrofit2.Call
-import retrofit2.Retrofit
 
 interface GitHubService {
 
@@ -16,9 +15,7 @@ interface GitHubService {
 
     fun getUsersByLogin(login: String, page: Int): Call<NetworkUsers>
 
-    class GitHubServiceImpl constructor(retrofit: Retrofit) : GitHubService {
-
-        private val gitHubApi by lazy { retrofit.create(GitHubApi::class.java) }
+    class GitHubServiceImpl constructor(private val gitHubApi: GitHubApi) : GitHubService {
 
         override fun getUsersByLogin(login: String, page: Int): Call<NetworkUsers> =
             gitHubApi.getUsersByLogin(login, TYPE, SORT, ORDER, page, PER_PAGE)
