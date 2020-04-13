@@ -65,15 +65,10 @@ object KoinModules {
     }
     private val viewModelModule = module {
         customViewModel<UserSearchViewModel> {
-            UserSearchViewModelImpl(
-                get()
-            )
+            UserSearchViewModelImpl(get())
         }
         customViewModel<UserDetailedViewModel> {
-            UserDetailedViewModelImpl(
-                get(),
-                get()
-            )
+            UserDetailedViewModelImpl(get(), get())
         }
     }
 
