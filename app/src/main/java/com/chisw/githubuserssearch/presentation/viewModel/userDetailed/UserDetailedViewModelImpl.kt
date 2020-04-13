@@ -41,12 +41,12 @@ class UserDetailedViewModelImpl(
         }
     }
 
-    private fun getReposAsync() = GlobalScope.async(Dispatchers.IO) {
+    private fun getReposAsync() = GlobalScope.async(Dispatchers.Main) {
         val userRepos = userReposUseCase(GetUserReposUseCase.Params.withParams(masterUser.login))
         userRepos.getOrNull()
     }
 
-    private fun getFollowersAsync() = GlobalScope.async(Dispatchers.IO) {
+    private fun getFollowersAsync() = GlobalScope.async(Dispatchers.Main) {
         val userFollowers =
             userFollowersUseCase(GetUserFollowersUseCase.Params.withParams(masterUser.login))
         userFollowers.getOrNull()
