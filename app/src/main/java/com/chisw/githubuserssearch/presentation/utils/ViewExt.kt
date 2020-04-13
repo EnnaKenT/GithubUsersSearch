@@ -2,7 +2,6 @@ package com.chisw.githubuserssearch.presentation.utils
 
 import android.app.Activity
 import android.content.res.ColorStateList
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
@@ -54,5 +53,3 @@ fun MaterialButton.setBackgroundTint(activity: Activity, colorResId: Int) {
 fun MaterialButton.setStrokeColor(activity: Activity, colorResId: Int) {
     strokeColor = ColorStateList.valueOf(ContextCompat.getColor(activity, colorResId))
 }
-
-fun log(tag: String? = "duck", text: String) = Log.i(tag, text)

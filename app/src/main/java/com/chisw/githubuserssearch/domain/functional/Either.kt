@@ -1,4 +1,4 @@
-package com.chisw.githubuserssearch.presentation.functional
+package com.chisw.githubuserssearch.domain.functional
 
 /**
  * Represents a value of one of two possible types (a disjoint union).

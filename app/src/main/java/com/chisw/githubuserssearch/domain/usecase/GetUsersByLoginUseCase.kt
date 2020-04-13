@@ -4,7 +4,7 @@ import com.chisw.githubuserssearch.domain.exception.Failure
 import com.chisw.githubuserssearch.domain.model.Users
 import com.chisw.githubuserssearch.domain.repository.GitHubRepository
 import com.chisw.githubuserssearch.domain.usecase.base.UseCase
-import com.chisw.githubuserssearch.presentation.functional.Either
+import com.chisw.githubuserssearch.domain.functional.Either
 
 class GetUsersByLoginUseCase(
     private val gitHubRepository: GitHubRepository

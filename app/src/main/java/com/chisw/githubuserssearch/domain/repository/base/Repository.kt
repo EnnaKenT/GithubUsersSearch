@@ -1,9 +1,9 @@
 package com.chisw.githubuserssearch.domain.repository.base
 
 import com.chisw.githubuserssearch.domain.exception.Failure
-import com.chisw.githubuserssearch.presentation.functional.Either
-import com.chisw.githubuserssearch.presentation.functional.Either.Left
-import com.chisw.githubuserssearch.presentation.functional.Either.Right
+import com.chisw.githubuserssearch.domain.functional.Either
+import com.chisw.githubuserssearch.domain.functional.Either.Left
+import com.chisw.githubuserssearch.domain.functional.Either.Right
 import retrofit2.Call
 
 interface Repository {

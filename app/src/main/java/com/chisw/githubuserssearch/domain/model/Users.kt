@@ -1,8 +1,6 @@
 package com.chisw.githubuserssearch.domain.model
 
 import android.os.Parcelable
-import com.chisw.githubuserssearch.data.network.model.NetworkUser
-import com.chisw.githubuserssearch.data.network.model.NetworkUsers
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
@@ -10,9 +8,6 @@ data class Users(
     val users: List<User>,
     val totalCount: Int
 ) : Parcelable
-
-fun Users.toDataModel(): NetworkUsers =
-    NetworkUsers(users.map { NetworkUser(it.login, it.id, it.avatarUrl) }, totalCount)
 
 @Parcelize
 data class User(

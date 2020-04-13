@@ -14,6 +14,9 @@ data class NetworkUsers(
 fun NetworkUsers.toDomainModel() =
     Users(users.map { User(it.login, it.id, it.avatarUrl) }, totalCount)
 
+fun Users.toDataModel(): NetworkUsers =
+    NetworkUsers(users.map { NetworkUser(it.login, it.id, it.avatarUrl) }, totalCount)
+
 data class NetworkUser(
     val login: String,
     val id: Int,

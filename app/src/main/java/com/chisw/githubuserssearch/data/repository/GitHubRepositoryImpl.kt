@@ -6,7 +6,7 @@ import com.chisw.githubuserssearch.data.network.service.GitHubService
 import com.chisw.githubuserssearch.domain.exception.Failure
 import com.chisw.githubuserssearch.domain.model.Users
 import com.chisw.githubuserssearch.domain.repository.GitHubRepository
-import com.chisw.githubuserssearch.presentation.functional.Either
+import com.chisw.githubuserssearch.domain.functional.Either
 
 class GitHubRepositoryImpl(private val postsService: GitHubService) : GitHubRepository {
 
