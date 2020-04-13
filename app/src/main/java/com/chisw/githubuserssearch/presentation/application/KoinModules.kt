@@ -64,12 +64,8 @@ object KoinModules {
         single { GetUserFollowersUseCase(get()) }
     }
     private val viewModelModule = module {
-        customViewModel<UserSearchViewModel> {
-            UserSearchViewModelImpl(get())
-        }
-        customViewModel<UserDetailedViewModel> {
-            UserDetailedViewModelImpl(get(), get())
-        }
+        customViewModel<UserSearchViewModel> { UserSearchViewModelImpl(get()) }
+        customViewModel<UserDetailedViewModel> { UserDetailedViewModelImpl(get(), get()) }
     }
 
 }
