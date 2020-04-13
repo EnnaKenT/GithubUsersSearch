@@ -5,5 +5,8 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-fun RecyclerView.addItemDecoration(context: Context) =
+/**
+ * for LinearLayoutManager
+ */
+fun RecyclerView.addDividerItemDecoration(context: Context) =
     addItemDecoration(DividerItemDecoration(context, LinearLayoutManager(context).orientation))

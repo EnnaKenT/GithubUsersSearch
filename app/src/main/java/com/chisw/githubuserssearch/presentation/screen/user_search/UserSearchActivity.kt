@@ -8,7 +8,7 @@ import com.chisw.githubuserssearch.domain.model.User
 import com.chisw.githubuserssearch.presentation.screen.base.activity.BaseActivity
 import com.chisw.githubuserssearch.presentation.screen.user_detailed.UserDetailedActivity
 import com.chisw.githubuserssearch.presentation.screen.user_search.adapter.UsersAdapter
-import com.chisw.githubuserssearch.presentation.utils.addItemDecoration
+import com.chisw.githubuserssearch.presentation.utils.addDividerItemDecoration
 import com.chisw.githubuserssearch.presentation.utils.customViewModel
 import com.chisw.githubuserssearch.presentation.utils.setBottomBarExpandListener
 import com.chisw.githubuserssearch.presentation.utils.show
@@ -28,7 +28,7 @@ class UserSearchActivity : BaseActivity(R.layout.activity_user_search),
         setSupportActionBar(bottomAppBar)
         with(recyclerView) {
             this.adapter = this@UserSearchActivity.adapter
-            this.addItemDecoration(context)
+            this.addDividerItemDecoration(context)
         }
         viewModel.usersListLiveData.observe(this, ::updateAdapterItems)
         viewModel.totalItemsCountLiveData.observe(this) { adapter.totalItemsCount = it }
