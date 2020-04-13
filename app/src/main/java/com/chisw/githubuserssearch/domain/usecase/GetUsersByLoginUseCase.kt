@@ -1,16 +1,16 @@
 package com.chisw.githubuserssearch.domain.usecase
 
-import com.chisw.githubuserssearch.data.model.GetPostsResponse
-import com.chisw.githubuserssearch.data.repository.GitHubRepository
 import com.chisw.githubuserssearch.domain.exception.Failure
+import com.chisw.githubuserssearch.domain.model.Users
+import com.chisw.githubuserssearch.domain.repository.GitHubRepository
 import com.chisw.githubuserssearch.domain.usecase.base.UseCase
-import com.chisw.githubuserssearch.presentation.base.functional.Either
+import com.chisw.githubuserssearch.presentation.functional.Either
 
 class GetUsersByLoginUseCase(
     private val gitHubRepository: GitHubRepository
-) : UseCase<GetPostsResponse, GetUsersByLoginUseCase.Params>() {
+) : UseCase<Users, GetUsersByLoginUseCase.Params>() {
 
-    override suspend fun run(params: Params): Either<Failure<*>, GetPostsResponse> =
+    override suspend fun run(params: Params): Either<Failure<*>, Users> =
         gitHubRepository.getUsersByLogin(params.login, params.page)
 
     class Params private constructor(val login: String, val page: Int) {

@@ -1,10 +1,10 @@
-package com.chisw.githubuserssearch.domain.viewmodel
+package com.chisw.githubuserssearch.presentation.viewModel.base
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.chisw.githubuserssearch.domain.exception.Failure
-import com.chisw.githubuserssearch.presentation.base.functional.Either
+import com.chisw.githubuserssearch.presentation.functional.Either
 
 abstract class BaseViewModel : ViewModel() {
 

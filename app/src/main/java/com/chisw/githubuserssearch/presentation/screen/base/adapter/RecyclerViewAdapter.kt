@@ -1,4 +1,4 @@
-package com.chisw.githubuserssearch.presentation.screens.base.adapter
+package com.chisw.githubuserssearch.presentation.screen.base.adapter
 
 import android.view.LayoutInflater
 import android.view.View

@@ -1,4 +1,4 @@
-package com.chisw.githubuserssearch.presentation.screens.main.adapter
+package com.chisw.githubuserssearch.presentation.screen.main.adapter
 
 import android.view.View
 import android.view.ViewGroup
@@ -6,14 +6,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.chisw.githubuserssearch.R
-import com.chisw.githubuserssearch.data.model.Item
-import com.chisw.githubuserssearch.presentation.screens.base.adapter.RecyclerViewAdapter
+import com.chisw.githubuserssearch.domain.model.User
+import com.chisw.githubuserssearch.presentation.screen.base.adapter.RecyclerViewAdapter
 import kotlinx.android.synthetic.main.item_user_rv.view.*
 
 class UsersAdapter(
     private val requestNextPageAction: () -> Unit,
-    private val itemClickedAction: (Item) -> Unit
-) : RecyclerViewAdapter<Item, UsersAdapter.TaskViewHolder>(DiffUtilItemCallback()) {
+    private val itemClickedAction: (User) -> Unit
+) : RecyclerViewAdapter<User, UsersAdapter.TaskViewHolder>(DiffUtilItemCallback()) {
 
     var totalItemsCount = 0
 
@@ -32,10 +32,10 @@ class UsersAdapter(
             itemView.setOnClickListener { itemClickedAction(getItem(adapterPosition)) }
         }
 
-        fun bind(item: Item) =
+        fun bind(user: User) =
             with(itemView) {
-                loginTv.text = item.login
-                avatarIv.load(item.avatar_url)
+                loginTv.text = user.login
+                avatarIv.load(user.avatarUrl)
             }
     }
 
@@ -45,7 +45,7 @@ class UsersAdapter(
 
 }
 
-private class DiffUtilItemCallback : DiffUtil.ItemCallback<Item>() {
-    override fun areItemsTheSame(oldItem: Item, newItem: Item) = oldItem.id == newItem.id
-    override fun areContentsTheSame(oldItem: Item, newItem: Item) = oldItem == newItem
+private class DiffUtilItemCallback : DiffUtil.ItemCallback<User>() {
+    override fun areItemsTheSame(oldUser: User, newUser: User) = oldUser.id == newUser.id
+    override fun areContentsTheSame(oldUser: User, newUser: User) = oldUser == newUser
 }

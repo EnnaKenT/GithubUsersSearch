@@ -1,13 +1,13 @@
-package com.chisw.githubuserssearch.presentation.screens.main
+package com.chisw.githubuserssearch.presentation.screen.main
 
 import android.view.Menu
 import android.widget.SearchView
 import androidx.lifecycle.observe
 import com.chisw.githubuserssearch.R
-import com.chisw.githubuserssearch.data.model.Item
-import com.chisw.githubuserssearch.presentation.screens.UsersViewModel
-import com.chisw.githubuserssearch.presentation.screens.base.activity.BaseActivity
-import com.chisw.githubuserssearch.presentation.screens.main.adapter.UsersAdapter
+import com.chisw.githubuserssearch.domain.model.User
+import com.chisw.githubuserssearch.presentation.viewModel.UsersViewModel
+import com.chisw.githubuserssearch.presentation.screen.base.activity.BaseActivity
+import com.chisw.githubuserssearch.presentation.screen.main.adapter.UsersAdapter
 import com.chisw.githubuserssearch.presentation.utils.addItemDecoration
 import com.chisw.githubuserssearch.presentation.utils.setBottomBarExpandListener
 import com.chisw.githubuserssearch.presentation.utils.show
@@ -21,7 +21,7 @@ class MainActivity : BaseActivity(R.layout.activity_main), SearchView.OnQueryTex
         UsersAdapter(viewModel::requestNextPageUsers, ::onAdapterItemClicked)
     }
 
-    private fun onAdapterItemClicked(item: Item) {
+    private fun onAdapterItemClicked(user: User) {
         // open detailed screen
     }
 
@@ -36,10 +36,10 @@ class MainActivity : BaseActivity(R.layout.activity_main), SearchView.OnQueryTex
         viewModel.failure.observe(this) { showToast(it) }
     }
 
-    private fun updateAdapterItems(items: List<Item>) {
-        recyclerView.show(items.isNotEmpty())
-        noItemsTv.show(items.isEmpty())
-        adapter.setItems(items)
+    private fun updateAdapterItems(users: List<User>) {
+        recyclerView.show(users.isNotEmpty())
+        noItemsTv.show(users.isEmpty())
+        adapter.setItems(users)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

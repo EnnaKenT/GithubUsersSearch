@@ -7,7 +7,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.chisw.githubuserssearch.domain.exception.Failure
-import com.chisw.githubuserssearch.presentation.screens.base.activity.BaseActivity
+import com.chisw.githubuserssearch.presentation.screen.base.activity.BaseActivity
 
 /**
  * for base fragment logic

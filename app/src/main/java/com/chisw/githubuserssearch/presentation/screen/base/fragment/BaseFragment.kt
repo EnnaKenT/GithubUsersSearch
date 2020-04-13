@@ -1,4 +1,4 @@
-package com.chisw.githubuserssearch.presentation.screens.base.fragment
+package com.chisw.githubuserssearch.presentation.screen.base.fragment
 
 import android.os.Bundle
 import android.view.View

@@ -2,10 +2,11 @@ package com.chisw.githubuserssearch.presentation.application
 
 import android.app.Application
 import com.chisw.githubuserssearch.BuildConfig
-import com.chisw.githubuserssearch.data.network.api.GitHubService
-import com.chisw.githubuserssearch.data.repository.GitHubRepository
+import com.chisw.githubuserssearch.data.network.service.GitHubService
+import com.chisw.githubuserssearch.data.repository.GitHubRepositoryImpl
+import com.chisw.githubuserssearch.domain.repository.GitHubRepository
 import com.chisw.githubuserssearch.domain.usecase.GetUsersByLoginUseCase
-import com.chisw.githubuserssearch.presentation.screens.UsersViewModel
+import com.chisw.githubuserssearch.presentation.viewModel.UsersViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
@@ -19,7 +20,7 @@ class App : Application() {
 
     private val appModule = module {
         single<GitHubService> { GitHubService.GitHubServiceImpl(retrofit) }
-        single<GitHubRepository> { GitHubRepository.Network(get()) }
+        single<GitHubRepository> { GitHubRepositoryImpl(get()) }
         single { GetUsersByLoginUseCase(get()) }
 
         viewModel {

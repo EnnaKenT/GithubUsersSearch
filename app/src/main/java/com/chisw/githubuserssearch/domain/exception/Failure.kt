@@ -4,7 +4,6 @@ import com.chisw.githubuserssearch.domain.event.Event
 import retrofit2.Response
 import java.net.HttpURLConnection
 
-
 sealed class Failure<T> (data : T): Event<T>(data) {
 
     class UnexpectedNetworkError : Failure<Unit>(Unit)

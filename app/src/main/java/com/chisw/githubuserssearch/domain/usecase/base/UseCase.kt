@@ -1,7 +1,7 @@
 package com.chisw.githubuserssearch.domain.usecase.base
 
 import com.chisw.githubuserssearch.domain.exception.Failure
-import com.chisw.githubuserssearch.presentation.base.functional.Either
+import com.chisw.githubuserssearch.presentation.functional.Either
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlin.coroutines.CoroutineContext

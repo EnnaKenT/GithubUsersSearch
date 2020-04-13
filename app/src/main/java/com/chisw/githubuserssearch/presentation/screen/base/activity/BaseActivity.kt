@@ -1,4 +1,4 @@
-package com.chisw.githubuserssearch.presentation.screens.base.activity
+package com.chisw.githubuserssearch.presentation.screen.base.activity
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
