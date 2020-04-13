@@ -1,4 +1,4 @@
-package com.chisw.githubuserssearch.presentation.screen.userSearch.adapter
+package com.chisw.githubuserssearch.presentation.screen.user_search.adapter
 
 import android.view.View
 import android.view.ViewGroup

@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.chisw.githubuserssearch.presentation.screen.userSearch.UserSearchActivity">
+        <activity android:name="com.chisw.githubuserssearch.presentation.screen.user_search.UserSearchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.screen.userDetailed.UserDetailedActivity"
+            android:name=".presentation.screen.user_detailed.UserDetailedActivity"
             android:theme="@style/DetailedActivityTheme" />
     </application>
 

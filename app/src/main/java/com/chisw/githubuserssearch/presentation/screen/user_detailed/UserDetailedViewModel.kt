@@ -1,4 +1,4 @@
-package com.chisw.githubuserssearch.presentation.view_model.userDetailed
+package com.chisw.githubuserssearch.presentation.screen.user_detailed
 
 import androidx.lifecycle.LiveData
 import com.chisw.githubuserssearch.domain.model.User

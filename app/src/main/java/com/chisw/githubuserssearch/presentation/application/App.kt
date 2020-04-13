@@ -10,10 +10,10 @@ import com.chisw.githubuserssearch.domain.usecase.GetUserFollowersUseCase
 import com.chisw.githubuserssearch.domain.usecase.GetUserReposUseCase
 import com.chisw.githubuserssearch.domain.usecase.GetUsersByLoginUseCase
 import com.chisw.githubuserssearch.presentation.utils.customViewModel
-import com.chisw.githubuserssearch.presentation.view_model.userDetailed.UserDetailedViewModel
-import com.chisw.githubuserssearch.presentation.view_model.userDetailed.UserDetailedViewModelImpl
-import com.chisw.githubuserssearch.presentation.view_model.userSearch.UserSearchViewModel
-import com.chisw.githubuserssearch.presentation.view_model.userSearch.UserSearchViewModelImpl
+import com.chisw.githubuserssearch.presentation.screen.user_detailed.UserDetailedViewModel
+import com.chisw.githubuserssearch.presentation.screen.user_detailed.UserDetailedViewModelImpl
+import com.chisw.githubuserssearch.presentation.screen.user_search.UserSearchViewModel
+import com.chisw.githubuserssearch.presentation.screen.user_search.UserSearchViewModelImpl
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -86,8 +86,17 @@ class App : Application() {
         single { GetUserFollowersUseCase(get()) }
     }
     private val viewModelModule = module {
-        customViewModel<UserSearchViewModel> { UserSearchViewModelImpl(get()) }
-        customViewModel<UserDetailedViewModel> { UserDetailedViewModelImpl(get(), get()) }
+        customViewModel<UserSearchViewModel> {
+            UserSearchViewModelImpl(
+                get()
+            )
+        }
+        customViewModel<UserDetailedViewModel> {
+            UserDetailedViewModelImpl(
+                get(),
+                get()
+            )
+        }
     }
 
 }

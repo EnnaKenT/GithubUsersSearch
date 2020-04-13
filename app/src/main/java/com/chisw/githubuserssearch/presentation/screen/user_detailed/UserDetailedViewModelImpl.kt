@@ -1,4 +1,4 @@
-package com.chisw.githubuserssearch.presentation.view_model.userDetailed
+package com.chisw.githubuserssearch.presentation.screen.user_detailed
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -16,7 +16,8 @@ import kotlinx.coroutines.launch
 class UserDetailedViewModelImpl(
     private val userReposUseCase: GetUserReposUseCase,
     private val userFollowersUseCase: GetUserFollowersUseCase
-) : BaseViewModelImpl(), UserDetailedViewModel {
+) : BaseViewModelImpl(),
+    UserDetailedViewModel {
 
     private val _userPublicReposLiveData: MutableLiveData<Int> = MutableLiveData()
     override val userPublicReposLiveData: LiveData<Int> = _userPublicReposLiveData

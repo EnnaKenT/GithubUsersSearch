@@ -1,4 +1,4 @@
-package com.chisw.githubuserssearch.presentation.view_model.userSearch
+package com.chisw.githubuserssearch.presentation.screen.user_search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package com.chisw.githubuserssearch.presentation.screen.userSearch
+package com.chisw.githubuserssearch.presentation.screen.user_search
 
 import android.view.Menu
 import android.widget.SearchView
@@ -6,13 +6,12 @@ import androidx.lifecycle.observe
 import com.chisw.githubuserssearch.R
 import com.chisw.githubuserssearch.domain.model.User
 import com.chisw.githubuserssearch.presentation.screen.base.activity.BaseActivity
-import com.chisw.githubuserssearch.presentation.screen.userDetailed.UserDetailedActivity
-import com.chisw.githubuserssearch.presentation.screen.userSearch.adapter.UsersAdapter
+import com.chisw.githubuserssearch.presentation.screen.user_detailed.UserDetailedActivity
+import com.chisw.githubuserssearch.presentation.screen.user_search.adapter.UsersAdapter
 import com.chisw.githubuserssearch.presentation.utils.addItemDecoration
 import com.chisw.githubuserssearch.presentation.utils.customViewModel
 import com.chisw.githubuserssearch.presentation.utils.setBottomBarExpandListener
 import com.chisw.githubuserssearch.presentation.utils.show
-import com.chisw.githubuserssearch.presentation.view_model.userSearch.UserSearchViewModel
 import kotlinx.android.synthetic.main.activity_user_search.*
 
 class UserSearchActivity : BaseActivity(R.layout.activity_user_search),

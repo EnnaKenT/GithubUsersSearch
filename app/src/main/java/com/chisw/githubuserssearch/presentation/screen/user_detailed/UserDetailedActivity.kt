@@ -1,4 +1,4 @@
-package com.chisw.githubuserssearch.presentation.screen.userDetailed
+package com.chisw.githubuserssearch.presentation.screen.user_detailed
 
 import android.app.Activity
 import android.content.Intent
@@ -8,7 +8,6 @@ import com.chisw.githubuserssearch.domain.model.User
 import com.chisw.githubuserssearch.presentation.screen.base.activity.BaseActivity
 import com.chisw.githubuserssearch.presentation.utils.customViewModel
 import com.chisw.githubuserssearch.presentation.utils.show
-import com.chisw.githubuserssearch.presentation.view_model.userDetailed.UserDetailedViewModel
 import kotlinx.android.synthetic.main.activity_user_detailed.*
 
 class UserDetailedActivity : BaseActivity(R.layout.activity_user_detailed) {
