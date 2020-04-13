@@ -7,13 +7,14 @@ import com.chisw.githubuserssearch.data.network.service.GitHubService
 import com.chisw.githubuserssearch.data.repository.GitHubRepositoryImpl
 import com.chisw.githubuserssearch.domain.repository.GitHubRepository
 import com.chisw.githubuserssearch.domain.usecase.GetUsersByLoginUseCase
+import com.chisw.githubuserssearch.presentation.utils.customViewModel
 import com.chisw.githubuserssearch.presentation.viewModel.UserSearchViewModel
+import com.chisw.githubuserssearch.presentation.viewModel.UserSearchViewModelImpl
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidContext
-import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -79,7 +80,7 @@ class App : Application() {
         single { GetUsersByLoginUseCase(get()) }
     }
     private val viewModelModule = module {
-        viewModel { UserSearchViewModel(get()) }
+        customViewModel<UserSearchViewModel> { UserSearchViewModelImpl(get()) }
     }
 
 }
