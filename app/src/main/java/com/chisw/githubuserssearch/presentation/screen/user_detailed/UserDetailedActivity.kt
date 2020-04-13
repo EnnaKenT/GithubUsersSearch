@@ -20,30 +20,30 @@ class UserDetailedActivity : BaseActivity(R.layout.activity_user_detailed) {
 
         viewModel.userFollowersLiveData.observe(this, ::setFollowers)
         viewModel.userPublicReposLiveData.observe(this, ::setRepos)
-        viewModel.failure.observe(this) { showToast(it) }
+        viewModel.failure.observe(this) {
+            hideProgressBar()
+            showToast(it)
+        }
     }
 
     private fun setFollowers(count: Int) {
         followersTv.text = getString(R.string.followers_format, count.toString())
         followersTv.show(true)
-        showProgressBar(false)
+        hideProgressBar()
     }
 
     private fun setRepos(count: Int) {
         publicReposTv.text = getString(R.string.public_repositories_format, count.toString())
         publicReposTv.show(true)
-        showProgressBar(false)
+        hideProgressBar()
     }
 
-    private fun showProgressBar(isVisible: Boolean) = progressBar.show(isVisible)
+    private fun hideProgressBar() = progressBar.show(false)
 
     companion object {
         private const val MASTER_USER_ARG = "master_user"
 
-        fun startActivity(
-            activity: Activity,
-            masterUser: User
-        ) {
+        fun startActivity(activity: Activity, masterUser: User) {
             val intent = Intent(activity, UserDetailedActivity::class.java).apply {
                 putExtra(MASTER_USER_ARG, masterUser)
             }
