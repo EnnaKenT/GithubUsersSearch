@@ -2,7 +2,6 @@ package com.chisw.githubuserssearch.presentation.screen.userDetailed
 
 import android.app.Activity
 import android.content.Intent
-import androidx.core.view.isVisible
 import androidx.lifecycle.observe
 import com.chisw.githubuserssearch.R
 import com.chisw.githubuserssearch.domain.model.User
@@ -28,7 +27,7 @@ class UserDetailedActivity : BaseActivity(R.layout.activity_user_detailed) {
     private fun setFollowers(count: Int) {
         if (count > 0) {
             followersTv.text = getString(R.string.followers_format, count.toString())
-            followersTv.isVisible = true
+            followersTv.show(true)
             showProgressBar(false)
         }
     }
@@ -36,7 +35,7 @@ class UserDetailedActivity : BaseActivity(R.layout.activity_user_detailed) {
     private fun setRepos(count: Int) {
         if (count > 0) {
             publicReposTv.text = getString(R.string.public_repositories_format, count.toString())
-            publicReposTv.isVisible = true
+            publicReposTv.show(true)
             showProgressBar(false)
         }
     }
