@@ -1,4 +1,4 @@
-package com.chisw.githubuserssearch.presentation.viewModel.userDetailed
+package com.chisw.githubuserssearch.presentation.view_model.userDetailed
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,7 +7,7 @@ import com.chisw.githubuserssearch.domain.model.User
 import com.chisw.githubuserssearch.domain.model.UserRepos
 import com.chisw.githubuserssearch.domain.usecase.GetUserFollowersUseCase
 import com.chisw.githubuserssearch.domain.usecase.GetUserReposUseCase
-import com.chisw.githubuserssearch.presentation.viewModel.base.BaseViewModelImpl
+import com.chisw.githubuserssearch.presentation.view_model.base.BaseViewModelImpl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async

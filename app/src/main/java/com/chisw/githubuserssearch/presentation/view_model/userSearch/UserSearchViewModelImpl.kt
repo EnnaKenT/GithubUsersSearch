@@ -1,11 +1,11 @@
-package com.chisw.githubuserssearch.presentation.viewModel.userSearch
+package com.chisw.githubuserssearch.presentation.view_model.userSearch
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.chisw.githubuserssearch.domain.model.User
 import com.chisw.githubuserssearch.domain.usecase.GetUsersByLoginUseCase
-import com.chisw.githubuserssearch.presentation.viewModel.base.BaseViewModelImpl
+import com.chisw.githubuserssearch.presentation.view_model.base.BaseViewModelImpl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch

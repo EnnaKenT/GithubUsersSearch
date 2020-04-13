@@ -1,4 +1,4 @@
-package com.chisw.githubuserssearch.presentation.viewModel.base
+package com.chisw.githubuserssearch.presentation.view_model.base
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

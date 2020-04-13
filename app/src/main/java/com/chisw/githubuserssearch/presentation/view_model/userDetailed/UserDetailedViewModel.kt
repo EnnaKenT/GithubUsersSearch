@@ -1,8 +1,8 @@
-package com.chisw.githubuserssearch.presentation.viewModel.userDetailed
+package com.chisw.githubuserssearch.presentation.view_model.userDetailed
 
 import androidx.lifecycle.LiveData
 import com.chisw.githubuserssearch.domain.model.User
-import com.chisw.githubuserssearch.presentation.viewModel.base.BaseViewModel
+import com.chisw.githubuserssearch.presentation.view_model.base.BaseViewModel
 
 interface UserDetailedViewModel : BaseViewModel {
     val userPublicReposLiveData: LiveData<Int>

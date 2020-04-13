@@ -1,8 +1,8 @@
-package com.chisw.githubuserssearch.presentation.viewModel.userSearch
+package com.chisw.githubuserssearch.presentation.view_model.userSearch
 
 import androidx.lifecycle.LiveData
 import com.chisw.githubuserssearch.domain.model.User
-import com.chisw.githubuserssearch.presentation.viewModel.base.BaseViewModel
+import com.chisw.githubuserssearch.presentation.view_model.base.BaseViewModel
 
 interface UserSearchViewModel : BaseViewModel {
     val usersListLiveData: LiveData<List<User>>

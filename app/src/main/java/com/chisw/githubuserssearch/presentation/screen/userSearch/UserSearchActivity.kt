@@ -12,7 +12,7 @@ import com.chisw.githubuserssearch.presentation.utils.addItemDecoration
 import com.chisw.githubuserssearch.presentation.utils.customViewModel
 import com.chisw.githubuserssearch.presentation.utils.setBottomBarExpandListener
 import com.chisw.githubuserssearch.presentation.utils.show
-import com.chisw.githubuserssearch.presentation.viewModel.userSearch.UserSearchViewModel
+import com.chisw.githubuserssearch.presentation.view_model.userSearch.UserSearchViewModel
 import kotlinx.android.synthetic.main.activity_user_search.*
 
 class UserSearchActivity : BaseActivity(R.layout.activity_user_search),
