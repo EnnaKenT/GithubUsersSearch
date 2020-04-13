@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/items_padding">
+    android:layout_margin="@dimen/app_padding">
 
     <ImageView
         android:id="@+id/avatarIv"
@@ -22,8 +22,8 @@
         android:id="@+id/loginTv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/items_padding"
-        android:paddingBottom="@dimen/items_padding"
+        android:layout_marginStart="@dimen/app_padding"
+        android:paddingBottom="@dimen/app_padding"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/avatarIv"
         app:layout_constraintTop_toTopOf="parent"

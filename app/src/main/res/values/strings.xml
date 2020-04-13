@@ -5,5 +5,7 @@
     <string name="action_search">Search</string>
     <string name="enter_login_hint">enter login</string>
     <string name="no_items">No items</string>
+    <string name="public_repositories_format">Public repositories:\n%s</string>
+    <string name="followers_format">Followers:\n%s</string>
 
 </resources>

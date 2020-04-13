@@ -1,4 +1,4 @@
-package com.chisw.githubuserssearch.presentation.viewModel
+package com.chisw.githubuserssearch.presentation.viewModel.userSearch
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -13,7 +13,8 @@ import kotlinx.coroutines.withContext
 import java.util.*
 
 class UserSearchViewModelImpl(private val usersByLoginUseCase: GetUsersByLoginUseCase) :
-    BaseViewModelImpl(), UserSearchViewModel {
+    BaseViewModelImpl(),
+    UserSearchViewModel {
 
     private val _usersListLiveData: MutableLiveData<List<User>> = MutableLiveData(ArrayList())
     override val usersListLiveData: LiveData<List<User>> = _usersListLiveData

@@ -1,4 +1,4 @@
-package com.chisw.githubuserssearch.presentation.screen.main
+package com.chisw.githubuserssearch.presentation.screen.userSearch
 
 import android.view.Menu
 import android.widget.SearchView
@@ -6,29 +6,29 @@ import androidx.lifecycle.observe
 import com.chisw.githubuserssearch.R
 import com.chisw.githubuserssearch.domain.model.User
 import com.chisw.githubuserssearch.presentation.screen.base.activity.BaseActivity
-import com.chisw.githubuserssearch.presentation.screen.main.adapter.UsersAdapter
+import com.chisw.githubuserssearch.presentation.screen.userDetailed.UserDetailedActivity
+import com.chisw.githubuserssearch.presentation.screen.userSearch.adapter.UsersAdapter
 import com.chisw.githubuserssearch.presentation.utils.addItemDecoration
 import com.chisw.githubuserssearch.presentation.utils.customViewModel
 import com.chisw.githubuserssearch.presentation.utils.setBottomBarExpandListener
 import com.chisw.githubuserssearch.presentation.utils.show
-import com.chisw.githubuserssearch.presentation.viewModel.UserSearchViewModel
-import kotlinx.android.synthetic.main.activity_main.*
+import com.chisw.githubuserssearch.presentation.viewModel.userSearch.UserSearchViewModel
+import kotlinx.android.synthetic.main.activity_user_search.*
 
-class MainActivity : BaseActivity(R.layout.activity_main), SearchView.OnQueryTextListener {
+class UserSearchActivity : BaseActivity(R.layout.activity_user_search),
+    SearchView.OnQueryTextListener {
 
     private val viewModel by customViewModel<UserSearchViewModel>()
     private val adapter by lazy {
         UsersAdapter(viewModel::requestNextPageUsers, ::onAdapterItemClicked)
     }
 
-    private fun onAdapterItemClicked(user: User) {
-        // open detailed screen
-    }
+    private fun onAdapterItemClicked(user: User) = UserDetailedActivity.startActivity(this, user)
 
     override fun initViews() {
         setSupportActionBar(bottomAppBar)
         with(recyclerView) {
-            this.adapter = this@MainActivity.adapter
+            this.adapter = this@UserSearchActivity.adapter
             this.addItemDecoration(context)
         }
         viewModel.usersListLiveData.observe(this, ::updateAdapterItems)
@@ -46,11 +46,11 @@ class MainActivity : BaseActivity(R.layout.activity_main), SearchView.OnQueryTex
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_bottom_bar, menu)
         menu.findItem(R.id.action_search).run {
-            setBottomBarExpandListener(this@MainActivity)
+            setBottomBarExpandListener(this@UserSearchActivity)
             val searchView = actionView as SearchView
             searchView.run {
                 queryHint = context.getString(R.string.enter_login_hint)
-                setOnQueryTextListener(this@MainActivity)
+                setOnQueryTextListener(this@UserSearchActivity)
                 isIconifiedByDefault = false // Do not iconify the widget; expand it by default
             }
         }

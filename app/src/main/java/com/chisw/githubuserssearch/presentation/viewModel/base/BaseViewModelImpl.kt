@@ -12,7 +12,7 @@ abstract class BaseViewModelImpl : ViewModel(), BaseViewModel {
     override val failure: LiveData<Failure<*>> = _failure
 
     override fun postFailure(failure: Failure<*>) {
-        _failure.value = failure
+        _failure.postValue(failure)
     }
 
     protected fun <R> Either<Failure<*>, R>.handle(handler: (R) -> Unit = {}): Any =

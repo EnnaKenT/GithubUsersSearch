@@ -16,13 +16,16 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.chisw.githubuserssearch.presentation.screen.main.MainActivity">
+        <activity android:name="com.chisw.githubuserssearch.presentation.screen.userSearch.UserSearchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".presentation.screen.userDetailed.UserDetailedActivity"
+            android:theme="@style/DetailedActivityTheme" />
     </application>
 
 </manifest>

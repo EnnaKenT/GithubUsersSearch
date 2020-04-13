@@ -6,10 +6,14 @@ import com.chisw.githubuserssearch.data.network.api.GitHubApi
 import com.chisw.githubuserssearch.data.network.service.GitHubService
 import com.chisw.githubuserssearch.data.repository.GitHubRepositoryImpl
 import com.chisw.githubuserssearch.domain.repository.GitHubRepository
+import com.chisw.githubuserssearch.domain.usecase.GetUserFollowersUseCase
+import com.chisw.githubuserssearch.domain.usecase.GetUserReposUseCase
 import com.chisw.githubuserssearch.domain.usecase.GetUsersByLoginUseCase
 import com.chisw.githubuserssearch.presentation.utils.customViewModel
-import com.chisw.githubuserssearch.presentation.viewModel.UserSearchViewModel
-import com.chisw.githubuserssearch.presentation.viewModel.UserSearchViewModelImpl
+import com.chisw.githubuserssearch.presentation.viewModel.userDetailed.UserDetailedViewModel
+import com.chisw.githubuserssearch.presentation.viewModel.userDetailed.UserDetailedViewModelImpl
+import com.chisw.githubuserssearch.presentation.viewModel.userSearch.UserSearchViewModel
+import com.chisw.githubuserssearch.presentation.viewModel.userSearch.UserSearchViewModelImpl
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -78,9 +82,12 @@ class App : Application() {
     }
     private val useCaseModule = module {
         single { GetUsersByLoginUseCase(get()) }
+        single { GetUserReposUseCase(get()) }
+        single { GetUserFollowersUseCase(get()) }
     }
     private val viewModelModule = module {
         customViewModel<UserSearchViewModel> { UserSearchViewModelImpl(get()) }
+        customViewModel<UserDetailedViewModel> { UserDetailedViewModelImpl(get(), get()) }
     }
 
 }

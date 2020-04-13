@@ -4,9 +4,11 @@ import com.chisw.githubuserssearch.data.network.model.NetworkUsers
 import com.chisw.githubuserssearch.data.network.model.toDomainModel
 import com.chisw.githubuserssearch.data.network.service.GitHubService
 import com.chisw.githubuserssearch.domain.exception.Failure
+import com.chisw.githubuserssearch.domain.functional.Either
+import com.chisw.githubuserssearch.domain.model.User
+import com.chisw.githubuserssearch.domain.model.UserRepos
 import com.chisw.githubuserssearch.domain.model.Users
 import com.chisw.githubuserssearch.domain.repository.GitHubRepository
-import com.chisw.githubuserssearch.domain.functional.Either
 
 class GitHubRepositoryImpl(private val postsService: GitHubService) : GitHubRepository {
 
@@ -15,6 +17,20 @@ class GitHubRepositoryImpl(private val postsService: GitHubService) : GitHubRepo
             postsService.getUsersByLogin(login, page),
             { it.toDomainModel() },
             NetworkUsers()
+        )
+
+    override fun getUserRepos(login: String): Either<Failure<*>, List<UserRepos>> =
+        request(
+            postsService.getUserRepos(login),
+            { it.map { item -> item.toDomainModel() } },
+            emptyList()
+        )
+
+    override fun getUserFollowers(login: String): Either<Failure<*>, List<User>> =
+        request(
+            postsService.getUserFollowers(login),
+            { it.map { item -> item.toDomainModel() } },
+            emptyList()
         )
 
 }

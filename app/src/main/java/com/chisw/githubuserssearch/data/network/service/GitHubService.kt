@@ -1,24 +1,37 @@
 package com.chisw.githubuserssearch.data.network.service
 
 import com.chisw.githubuserssearch.data.network.api.GitHubApi
+import com.chisw.githubuserssearch.data.network.model.NetworkUser
+import com.chisw.githubuserssearch.data.network.model.NetworkUserRepos
 import com.chisw.githubuserssearch.data.network.model.NetworkUsers
 import retrofit2.Call
 
 interface GitHubService {
 
-    companion object {
-        private const val TYPE = "users"
-        private const val SORT = "stars"
-        private const val ORDER = "desc"
-        private const val PER_PAGE = 100
-    }
-
     fun getUsersByLogin(login: String, page: Int): Call<NetworkUsers>
+
+    fun getUserRepos(login: String): Call<List<NetworkUserRepos>>
+
+    fun getUserFollowers(login: String): Call<List<NetworkUser>>
 
     class GitHubServiceImpl constructor(private val gitHubApi: GitHubApi) : GitHubService {
 
         override fun getUsersByLogin(login: String, page: Int): Call<NetworkUsers> =
-            gitHubApi.getUsersByLogin(login, TYPE, SORT, ORDER, page, PER_PAGE)
+            gitHubApi.getUsersByLogin(
+                login,
+                GitHubApi.TYPE,
+                GitHubApi.SORT,
+                GitHubApi.ORDER,
+                page,
+                GitHubApi.PER_PAGE
+            )
+
+        override fun getUserRepos(login: String): Call<List<NetworkUserRepos>> =
+            gitHubApi.getUserRepos(login)
+
+        override fun getUserFollowers(login: String): Call<List<NetworkUser>> =
+            gitHubApi.getUserFollowers(login)
+
 
     }
 

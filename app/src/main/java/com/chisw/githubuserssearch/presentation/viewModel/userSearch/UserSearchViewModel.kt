@@ -1,4 +1,4 @@
-package com.chisw.githubuserssearch.presentation.viewModel
+package com.chisw.githubuserssearch.presentation.viewModel.userSearch
 
 import androidx.lifecycle.LiveData
 import com.chisw.githubuserssearch.domain.model.User
