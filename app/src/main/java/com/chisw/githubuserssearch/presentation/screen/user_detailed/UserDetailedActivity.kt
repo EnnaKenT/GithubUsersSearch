@@ -16,8 +16,9 @@ class UserDetailedActivity : BaseActivity(R.layout.activity_user_detailed) {
 
     override fun initViews() {
         val masterUser = intent.getParcelableExtra<User>(MASTER_USER_ARG)
-        viewModel.requestDataForMasterUser(masterUser)
+        toolbarTextView.text = masterUser.login
 
+        viewModel.requestDataForMasterUser(masterUser)
         viewModel.userFollowersLiveData.observe(this, ::setFollowers)
         viewModel.userPublicReposLiveData.observe(this, ::setRepos)
         viewModel.failure.observe(this) {
