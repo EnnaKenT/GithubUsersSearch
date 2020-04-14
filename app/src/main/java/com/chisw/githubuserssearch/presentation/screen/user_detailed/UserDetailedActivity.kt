@@ -16,8 +16,7 @@ class UserDetailedActivity : BaseActivity(R.layout.activity_user_detailed) {
 
     override fun initViews() {
         val masterUser = intent.getParcelableExtra<User>(MASTER_USER_ARG)
-        toolbarTextView.text = masterUser.login
-
+        initToolbar(masterUser.login)
         viewModel.requestDataForMasterUser(masterUser)
         viewModel.userFollowersLiveData.observe(this, ::setFollowers)
         viewModel.userPublicReposLiveData.observe(this, ::setRepos)
@@ -25,6 +24,20 @@ class UserDetailedActivity : BaseActivity(R.layout.activity_user_detailed) {
             hideProgressBar()
             showToast(it)
         }
+    }
+
+    private fun initToolbar(masterLogin: String) {
+        setSupportActionBar(toolbar)
+        supportActionBar?.run {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+        toolbarTextView.text = masterLogin
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 
     private fun setFollowers(count: Int) {
