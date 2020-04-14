@@ -11,21 +11,21 @@ import retrofit2.http.Query
 interface GitHubApi {
 
     companion object {
-        const val TYPE = "users"
-        const val SORT = "stars"
-        const val ORDER = "desc"
-        const val PER_PAGE = 100
+        private const val TYPE = "users"
+        private const val SORT = "stars"
+        private const val ORDER = "desc"
+        private const val PER_PAGE = 100
         private const val LOGIN_PATH = "login"
     }
 
     @GET("/search/users")
     fun getUsersByLogin(
         @Query("q") login: String,
-        @Query("type") type: String,
-        @Query("sort") sort: String,
-        @Query("order") order: String,
+        @Query("type") type: String = TYPE,
+        @Query("sort") sort: String = SORT,
+        @Query("order") order: String = ORDER,
         @Query("page") page: Int,
-        @Query("per_page") perPage: Int
+        @Query("per_page") perPage: Int = PER_PAGE
     ): Call<NetworkUsers>
 
     @GET("/users/{$LOGIN_PATH}/repos")

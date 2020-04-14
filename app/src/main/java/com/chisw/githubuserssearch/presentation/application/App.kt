@@ -18,10 +18,8 @@ class App : Application() {
 
     private fun startKoin() {
         startKoin {
-            // Android context
             androidContext(this@App)
-            // modules
-            modules(KoinModules.getModules())
+            modules(KoinModules().getModules())
         }
     }
 
