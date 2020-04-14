@@ -14,10 +14,10 @@ import com.chisw.githubuserssearch.presentation.utils.setBottomBarExpandListener
 import com.chisw.githubuserssearch.presentation.utils.show
 import kotlinx.android.synthetic.main.activity_user_search.*
 
-class UserSearchActivity : BaseActivity(R.layout.activity_user_search),
+class UserSearchActivity : BaseActivity<UserSearchViewModel>(R.layout.activity_user_search),
     SearchView.OnQueryTextListener {
 
-    private val viewModel by customViewModel<UserSearchViewModel>()
+    override val viewModel by customViewModel<UserSearchViewModel>()
     private val adapter by lazy {
         UsersAdapter(viewModel::requestNextPageUsers, ::onAdapterItemClicked)
     }
@@ -32,7 +32,6 @@ class UserSearchActivity : BaseActivity(R.layout.activity_user_search),
         }
         viewModel.usersListLiveData.observe(this, ::updateAdapterItems)
         viewModel.totalItemsCountLiveData.observe(this) { adapter.totalItemsCount = it }
-        viewModel.failure.observe(this) { showToast(it) }
     }
 
     private fun updateAdapterItems(users: List<User>) {

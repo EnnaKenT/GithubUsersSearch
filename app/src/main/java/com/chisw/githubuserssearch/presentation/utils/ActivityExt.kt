@@ -8,7 +8,7 @@ import android.widget.Toast
 import com.chisw.githubuserssearch.domain.exception.Failure
 import com.chisw.githubuserssearch.presentation.screen.base.activity.BaseActivity
 
-fun BaseActivity.toast(message: Failure<*>) =
+fun BaseActivity<*>.toast(message: Failure<*>) =
     Toast.makeText(this, message.toString(), Toast.LENGTH_LONG).show()
 
 fun Activity.hideKeyboard() {

@@ -10,9 +10,9 @@ import com.chisw.githubuserssearch.presentation.utils.customViewModel
 import com.chisw.githubuserssearch.presentation.utils.show
 import kotlinx.android.synthetic.main.activity_user_detailed.*
 
-class UserDetailedActivity : BaseActivity(R.layout.activity_user_detailed) {
+class UserDetailedActivity : BaseActivity<UserDetailedViewModel>(R.layout.activity_user_detailed) {
 
-    private val viewModel by customViewModel<UserDetailedViewModel>()
+    override val viewModel by customViewModel<UserDetailedViewModel>()
 
     override fun initViews() {
         val masterUser = intent.getParcelableExtra<User>(MASTER_USER_ARG)
@@ -20,10 +20,7 @@ class UserDetailedActivity : BaseActivity(R.layout.activity_user_detailed) {
         viewModel.requestDataForMasterUser(masterUser)
         viewModel.userFollowersLiveData.observe(this, ::setFollowers)
         viewModel.userPublicReposLiveData.observe(this, ::setRepos)
-        viewModel.failure.observe(this) {
-            hideProgressBar()
-            showToast(it)
-        }
+        viewModel.failure.observe(this) { hideProgressBar() }
     }
 
     private fun initToolbar(masterLogin: String) {
