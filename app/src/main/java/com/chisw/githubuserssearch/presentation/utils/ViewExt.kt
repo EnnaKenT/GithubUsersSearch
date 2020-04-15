@@ -4,44 +4,73 @@ import android.app.Activity
 import android.content.res.ColorStateList
 import android.view.MenuItem
 import android.view.View
-import android.widget.EditText
+import androidx.constraintlayout.widget.Group
 import androidx.core.content.ContextCompat
 import com.google.android.material.button.MaterialButton
 
+fun View.setGone() {
+    if (visibility != View.GONE) {
+        visibility = View.GONE
+    }
+}
+
+fun View.setVisible() {
+    isEnabled = true
+    if (visibility != View.VISIBLE) {
+        visibility = View.VISIBLE
+    }
+}
+
 fun View.setInvisible() {
     isEnabled = false
-    if (visibility != View.INVISIBLE) visibility = View.INVISIBLE
+    if (visibility != View.INVISIBLE) {
+        visibility = View.INVISIBLE
+    }
 }
 
-fun View.setInvisibleEnable() {
-    isEnabled = true
-    if (visibility != View.INVISIBLE) visibility = View.INVISIBLE
-}
+fun View.isVisible(): Boolean = visibility == View.VISIBLE
+
+fun View.isGone(): Boolean = visibility == View.GONE
+
+fun View.isInvisible(): Boolean = visibility == View.INVISIBLE
 
 fun MenuItem.setGone() {
-    if (isVisible) isVisible = false
+    if (isVisible) {
+        isVisible = false
+    }
 }
 
 fun MenuItem.setVisible() {
     isEnabled = true
-    if (!isVisible) isVisible = true
+    if (!isVisible) {
+        isVisible = true
+    }
 }
 
 fun View.show(show: Boolean) {
-    val visibility =
-        if (show) View.VISIBLE
-        else View.GONE
-    if (this.visibility != visibility) this.visibility = visibility
+    if (show) setVisible() else setGone()
 }
 
-fun View.showWithInvisible(show: Boolean) {
-    val visibility =
-        if (show) View.VISIBLE
-        else View.INVISIBLE
-    if (this.visibility != visibility) this.visibility = visibility
+fun Group.setAllOnClickListener(listener: () -> Unit) {
+    referencedIds.forEach { id ->
+        rootView.findViewById<View>(id).setOnClickListener { listener.invoke() }
+    }
 }
 
-fun EditText.clear() = editableText.clear()
+fun Group.setAllOnLongClickListener(listener: () -> Unit) {
+    referencedIds.forEach { id ->
+        rootView.findViewById<View>(id).setOnLongClickListener {
+            listener.invoke()
+            true
+        }
+    }
+}
+
+fun Group.setAllOnClickListener(listener: View.OnClickListener?) =
+    setAllOnClickListener { listener?.onClick(null) }
+
+fun Group.setAllOnLongClickListener(listener: View.OnClickListener?) =
+    setAllOnLongClickListener { listener?.onClick(null) }
 
 /**
  * default setBackgroundTint doesnt work

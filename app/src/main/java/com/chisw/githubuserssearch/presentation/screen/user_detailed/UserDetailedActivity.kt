@@ -7,6 +7,7 @@ import com.chisw.githubuserssearch.R
 import com.chisw.githubuserssearch.domain.model.User
 import com.chisw.githubuserssearch.presentation.screen.base.activity.BaseActivity
 import com.chisw.githubuserssearch.presentation.utils.customViewModel
+import com.chisw.githubuserssearch.presentation.utils.setGone
 import com.chisw.githubuserssearch.presentation.utils.show
 import kotlinx.android.synthetic.main.activity_user_detailed.*
 
@@ -15,7 +16,7 @@ class UserDetailedActivity : BaseActivity<UserDetailedViewModel>(R.layout.activi
     override val viewModel by customViewModel<UserDetailedViewModel>()
 
     override fun initViews() {
-        val masterUser = intent.getParcelableExtra<User>(MASTER_USER_ARG)
+        val masterUser = intent.getParcelableExtra<User>(MASTER_USER_ARG)!!
         initToolbar(masterUser.login)
         viewModel.requestDataForMasterUser(masterUser)
         viewModel.userFollowersLiveData.observe(this, ::setFollowers)
@@ -49,7 +50,7 @@ class UserDetailedActivity : BaseActivity<UserDetailedViewModel>(R.layout.activi
         hideProgressBar()
     }
 
-    private fun hideProgressBar() = progressBar.show(false)
+    private fun hideProgressBar() = progressBar.setGone()
 
     companion object {
         private const val MASTER_USER_ARG = "master_user"
