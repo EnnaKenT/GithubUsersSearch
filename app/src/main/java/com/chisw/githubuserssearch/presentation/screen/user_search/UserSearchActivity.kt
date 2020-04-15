@@ -10,7 +10,7 @@ import com.chisw.githubuserssearch.presentation.screen.user_detailed.UserDetaile
 import com.chisw.githubuserssearch.presentation.screen.user_search.adapter.UsersAdapter
 import com.chisw.githubuserssearch.presentation.utils.addDividerItemDecoration
 import com.chisw.githubuserssearch.presentation.utils.customViewModel
-import com.chisw.githubuserssearch.presentation.utils.setBottomBarExpandListener
+import com.chisw.githubuserssearch.presentation.utils.setSearchViewExpandListener
 import com.chisw.githubuserssearch.presentation.utils.show
 import kotlinx.android.synthetic.main.activity_user_search.*
 
@@ -44,7 +44,7 @@ class UserSearchActivity : BaseActivity<UserSearchViewModel>(R.layout.activity_u
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_bottom_bar, menu)
         menu.findItem(R.id.action_search).run {
-            setBottomBarExpandListener(this@UserSearchActivity)
+            setSearchViewExpandListener(this@UserSearchActivity)
             val searchView = actionView as SearchView
             searchView.run {
                 queryHint = context.getString(R.string.enter_login_hint)

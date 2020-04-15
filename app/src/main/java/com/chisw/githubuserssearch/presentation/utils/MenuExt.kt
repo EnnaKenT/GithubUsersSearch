@@ -3,7 +3,7 @@ package com.chisw.githubuserssearch.presentation.utils
 import android.app.Activity
 import android.view.MenuItem
 
-fun MenuItem.setBottomBarExpandListener(activity: Activity) {
+fun MenuItem.setSearchViewExpandListener(activity: Activity) {
     setOnActionExpandListener(object : MenuItem.OnActionExpandListener {
         override fun onMenuItemActionExpand(item: MenuItem?): Boolean = true
 
