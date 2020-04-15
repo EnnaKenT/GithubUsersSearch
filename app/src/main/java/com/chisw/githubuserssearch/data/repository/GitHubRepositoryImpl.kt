@@ -12,21 +12,21 @@ import com.chisw.githubuserssearch.domain.repository.GitHubRepository
 
 class GitHubRepositoryImpl(private val postsService: GitHubService) : GitHubRepository {
 
-    override fun getUsersByLogin(login: String, page: Int): Either<Failure<*>, Users> =
+    override suspend fun getUsersByLogin(login: String, page: Int): Either<Failure<*>, Users> =
         request(
             postsService.getUsersByLogin(login, page),
             { it.toDomainModel() },
             NetworkUsers()
         )
 
-    override fun getUserRepos(login: String): Either<Failure<*>, List<UserRepos>> =
+    override suspend fun getUserRepos(login: String): Either<Failure<*>, List<UserRepos>> =
         request(
             postsService.getUserRepos(login),
             { it.map { item -> item.toDomainModel() } },
             emptyList()
         )
 
-    override fun getUserFollowers(login: String): Either<Failure<*>, List<User>> =
+    override suspend fun getUserFollowers(login: String): Either<Failure<*>, List<User>> =
         request(
             postsService.getUserFollowers(login),
             { it.map { item -> item.toDomainModel() } },

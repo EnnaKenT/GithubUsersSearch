@@ -10,28 +10,20 @@ import retrofit2.http.Query
 
 interface GitHubApi {
 
-    companion object {
-        private const val TYPE = "users"
-        private const val SORT = "stars"
-        private const val ORDER = "desc"
-        private const val PER_PAGE = 100
-        private const val LOGIN_PATH = "login"
-    }
-
     @GET("/search/users")
-    fun getUsersByLogin(
+    suspend fun getUsersByLogin(
         @Query("q") login: String,
-        @Query("type") type: String = TYPE,
-        @Query("sort") sort: String = SORT,
-        @Query("order") order: String = ORDER,
+        @Query("type") type: String = Http.Query.TYPE,
+        @Query("sort") sort: String = Http.Query.SORT,
+        @Query("order") order: String = Http.Query.ORDER,
         @Query("page") page: Int,
-        @Query("per_page") perPage: Int = PER_PAGE
+        @Query("per_page") perPage: Int = Http.Query.PER_PAGE
     ): Call<NetworkUsers>
 
-    @GET("/users/{$LOGIN_PATH}/repos")
-    fun getUserRepos(@Path(LOGIN_PATH) login: String): Call<List<NetworkUserRepos>>
+    @GET("/users/{${Http.Path.LOGIN}}/repos")
+    suspend fun getUserRepos(@Path(Http.Path.LOGIN) login: String): Call<List<NetworkUserRepos>>
 
-    @GET("/users/{$LOGIN_PATH}/followers")
-    fun getUserFollowers(@Path(LOGIN_PATH) login: String): Call<List<NetworkUser>>
+    @GET("/users/{${Http.Path.LOGIN}}/followers")
+    suspend fun getUserFollowers(@Path(Http.Path.LOGIN) login: String): Call<List<NetworkUser>>
 
 }

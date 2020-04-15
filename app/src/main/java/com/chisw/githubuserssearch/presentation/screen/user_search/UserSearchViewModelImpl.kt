@@ -13,14 +13,13 @@ import kotlinx.coroutines.withContext
 import java.util.*
 
 class UserSearchViewModelImpl(private val usersByLoginUseCase: GetUsersByLoginUseCase) :
-    BaseViewModelImpl(),
-    UserSearchViewModel {
+    BaseViewModelImpl(), UserSearchViewModel {
 
-    private val _usersListLiveData: MutableLiveData<List<User>> = MutableLiveData(ArrayList())
-    override val usersListLiveData: LiveData<List<User>> = _usersListLiveData
+    private val _usersLiveData: MutableLiveData<List<User>> = MutableLiveData(ArrayList())
+    override val usersLiveData: LiveData<List<User>> = _usersLiveData
 
-    private val _totalItemsCountLiveData: MutableLiveData<Int> = MutableLiveData()
-    override val totalItemsCountLiveData: LiveData<Int> = _totalItemsCountLiveData
+    private val _totalUsersCountLiveData: MutableLiveData<Int> = MutableLiveData()
+    override val totalUsersCountLiveData: LiveData<Int> = _totalUsersCountLiveData
 
     private var searchFirstPageJob: Job? = null
     private var searchNextPageJob: Job? = null
@@ -62,8 +61,8 @@ class UserSearchViewModelImpl(private val usersByLoginUseCase: GetUsersByLoginUs
     private fun emitData(users: List<User>, totalCount: Int) {
         if (page == 1) usersList.clear() //clear list if first page response
         usersList.addAll(users)
-        _usersListLiveData.value = usersList
-        _totalItemsCountLiveData.value = totalCount
+        _usersLiveData.value = usersList
+        _totalUsersCountLiveData.value = totalCount
         page++
     }
 

@@ -30,8 +30,8 @@ class UserSearchActivity : BaseActivity<UserSearchViewModel>(R.layout.activity_u
             this.adapter = this@UserSearchActivity.adapter
             this.addDividerItemDecoration(context)
         }
-        viewModel.usersListLiveData.observe(this, ::updateAdapterItems)
-        viewModel.totalItemsCountLiveData.observe(this) { adapter.totalItemsCount = it }
+        viewModel.usersLiveData.observe(this, ::updateAdapterItems)
+        viewModel.totalUsersCountLiveData.observe(this) { adapter.totalItemsCount = it }
     }
 
     private fun updateAdapterItems(users: List<User>) {

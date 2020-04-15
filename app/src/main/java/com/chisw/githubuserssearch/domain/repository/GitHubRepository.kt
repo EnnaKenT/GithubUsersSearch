@@ -9,10 +9,8 @@ import com.chisw.githubuserssearch.domain.repository.base.Repository
 
 interface GitHubRepository : Repository {
 
-    fun getUsersByLogin(login: String, page: Int): Either<Failure<*>, Users>
-
-    fun getUserRepos(login: String): Either<Failure<*>, List<UserRepos>>
-
-    fun getUserFollowers(login: String): Either<Failure<*>, List<User>>
+    suspend fun getUsersByLogin(login: String, page: Int): Either<Failure<*>, Users>
+    suspend fun getUserRepos(login: String): Either<Failure<*>, List<UserRepos>>
+    suspend fun getUserFollowers(login: String): Either<Failure<*>, List<User>>
 
 }

@@ -8,21 +8,20 @@ import retrofit2.Call
 
 interface GitHubService {
 
-    fun getUsersByLogin(login: String, page: Int): Call<NetworkUsers>
-    fun getUserRepos(login: String): Call<List<NetworkUserRepos>>
-    fun getUserFollowers(login: String): Call<List<NetworkUser>>
+    suspend fun getUsersByLogin(login: String, page: Int): Call<NetworkUsers>
+    suspend fun getUserRepos(login: String): Call<List<NetworkUserRepos>>
+    suspend fun getUserFollowers(login: String): Call<List<NetworkUser>>
 
-    class GitHubServiceImpl constructor(private val gitHubApi: GitHubApi) : GitHubService {
+    class GitHubServiceImpl (private val gitHubApi: GitHubApi) : GitHubService {
 
-        override fun getUsersByLogin(login: String, page: Int): Call<NetworkUsers> =
+        override suspend fun getUsersByLogin(login: String, page: Int): Call<NetworkUsers> =
             gitHubApi.getUsersByLogin(login = login, page = page)
 
-        override fun getUserRepos(login: String): Call<List<NetworkUserRepos>> =
+        override suspend fun getUserRepos(login: String): Call<List<NetworkUserRepos>> =
             gitHubApi.getUserRepos(login)
 
-        override fun getUserFollowers(login: String): Call<List<NetworkUser>> =
+        override suspend fun getUserFollowers(login: String): Call<List<NetworkUser>> =
             gitHubApi.getUserFollowers(login)
-
 
     }
 

@@ -5,8 +5,8 @@ import com.chisw.githubuserssearch.domain.model.User
 import com.chisw.githubuserssearch.presentation.view_model.base.BaseViewModel
 
 interface UserSearchViewModel : BaseViewModel {
-    val usersListLiveData: LiveData<List<User>>
-    val totalItemsCountLiveData: LiveData<Int>
+    val usersLiveData: LiveData<List<User>>
+    val totalUsersCountLiveData: LiveData<Int>
     fun searchQueryChanged(text: String)
     fun searchQuerySubmitted(text: String)
     fun requestNextPageUsers()

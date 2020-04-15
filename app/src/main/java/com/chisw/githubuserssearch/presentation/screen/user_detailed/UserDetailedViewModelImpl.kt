@@ -16,8 +16,7 @@ import kotlinx.coroutines.launch
 class UserDetailedViewModelImpl(
     private val userReposUseCase: GetUserReposUseCase,
     private val userFollowersUseCase: GetUserFollowersUseCase
-) : BaseViewModelImpl(),
-    UserDetailedViewModel {
+) : BaseViewModelImpl(), UserDetailedViewModel {
 
     private val _userPublicReposLiveData: MutableLiveData<Int> = MutableLiveData()
     override val userPublicReposLiveData: LiveData<Int> = _userPublicReposLiveData
