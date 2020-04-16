@@ -1,7 +1,7 @@
 package com.chisw.githubuserssearch.data.repository
 
+import com.chisw.githubuserssearch.data.mapper.toDomainModel
 import com.chisw.githubuserssearch.data.network.model.NetworkUsers
-import com.chisw.githubuserssearch.data.network.model.toDomainModel
 import com.chisw.githubuserssearch.data.network.service.GitHubService
 import com.chisw.githubuserssearch.domain.exception.Failure
 import com.chisw.githubuserssearch.domain.functional.Either
