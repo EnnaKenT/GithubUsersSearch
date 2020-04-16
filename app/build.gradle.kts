@@ -34,15 +34,16 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
     implementation("androidx.appcompat:appcompat:1.1.0")
-    implementation("androidx.core:core-ktx:1.3.0-beta01")
+    implementation("androidx.core:core-ktx:1.3.0-rc01")
     implementation("androidx.fragment:fragment-ktx:1.3.0-alpha03")
-    implementation("com.google.android.material:material:1.2.0-alpha05")
+    implementation("com.google.android.material:material:1.2.0-alpha06")
     implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta4")
 
     implementation("com.squareup.okhttp3:okhttp:4.5.0")
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
-    implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
+//    not used
+//    implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")

@@ -11,7 +11,7 @@ import retrofit2.http.Query
 interface GitHubApi {
 
     @GET("/search/users")
-    suspend fun getUsersByLogin(
+    fun getUsersByLogin(
         @Query("q") login: String,
         @Query("type") type: String = Http.Query.TYPE,
         @Query("sort") sort: String = Http.Query.SORT,
@@ -21,9 +21,9 @@ interface GitHubApi {
     ): Call<NetworkUsers>
 
     @GET("/users/{${Http.Path.LOGIN}}/repos")
-    suspend fun getUserRepos(@Path(Http.Path.LOGIN) login: String): Call<List<NetworkUserRepos>>
+    fun getUserRepos(@Path(Http.Path.LOGIN) login: String): Call<List<NetworkUserRepos>>
 
     @GET("/users/{${Http.Path.LOGIN}}/followers")
-    suspend fun getUserFollowers(@Path(Http.Path.LOGIN) login: String): Call<List<NetworkUser>>
+    fun getUserFollowers(@Path(Http.Path.LOGIN) login: String): Call<List<NetworkUser>>
 
 }

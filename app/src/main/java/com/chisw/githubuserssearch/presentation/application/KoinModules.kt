@@ -21,22 +21,24 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class KoinModules {
+object KoinModules {
 
     fun getModules() = listOf(
-        retrofitModule,
-        apiModule,
-        serviceModule,
-        repositoryModule,
-        useCaseModule,
-        viewModelModule
+        provideRetrofitModule(),
+        provideApiModule(),
+        provideServiceModule(),
+        provideRepositoryModule(),
+        provideUseCaseModule(),
+        provideViewModelModule()
     )
 
-    private val retrofitModule = module {
-        fun provideGson(): Gson =
-            GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.IDENTITY).create()
+    private fun provideRetrofitModule() = module {
+        fun provideGson(): Gson = GsonBuilder()
+            .setFieldNamingPolicy(FieldNamingPolicy.IDENTITY)
+            .create()
 
         fun provideHttpClient(): OkHttpClient = OkHttpClient.Builder().build()
+
         fun provideRetrofit(factory: Gson, client: OkHttpClient): Retrofit =
             Retrofit.Builder()
                 .baseUrl(BuildConfig.BASE_URL)
@@ -48,22 +50,27 @@ class KoinModules {
         single { provideHttpClient() }
         single { provideRetrofit(get(), get()) }
     }
-    private val apiModule = module {
+
+    private fun provideApiModule() = module {
         fun provideGitHubApi(retrofit: Retrofit): GitHubApi = retrofit.create(GitHubApi::class.java)
         single { provideGitHubApi(get()) }
     }
-    private val serviceModule = module {
+
+    private fun provideServiceModule() = module {
         single<GitHubService> { GitHubService.GitHubServiceImpl(get()) }
     }
-    private val repositoryModule = module {
+
+    private fun provideRepositoryModule() = module {
         single<GitHubRepository> { GitHubRepositoryImpl(get()) }
     }
-    private val useCaseModule = module {
+
+    private fun provideUseCaseModule() = module {
         single { GetUsersByLoginUseCase(get()) }
         single { GetUserReposUseCase(get()) }
         single { GetUserFollowersUseCase(get()) }
     }
-    private val viewModelModule = module {
+
+    private fun provideViewModelModule() = module {
         customViewModel<UserSearchViewModel> { UserSearchViewModelImpl(get()) }
         customViewModel<UserDetailedViewModel> { UserDetailedViewModelImpl(get(), get()) }
     }
