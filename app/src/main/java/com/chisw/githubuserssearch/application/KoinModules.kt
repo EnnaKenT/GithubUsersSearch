@@ -1,4 +1,4 @@
-package com.chisw.githubuserssearch.presentation.application
+package com.chisw.githubuserssearch.application
 
 import com.chisw.githubuserssearch.BuildConfig
 import com.chisw.githubuserssearch.data.network.api.GitHubApi

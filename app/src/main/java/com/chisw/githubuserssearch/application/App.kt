@@ -1,4 +1,4 @@
-package com.chisw.githubuserssearch.presentation.application
+package com.chisw.githubuserssearch.application
 
 import android.app.Application
 import org.koin.android.ext.koin.androidContext
