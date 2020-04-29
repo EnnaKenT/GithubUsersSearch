@@ -8,8 +8,6 @@ import com.chisw.githubuserssearch.domain.model.UserRepos
 import com.chisw.githubuserssearch.domain.usecase.GetUserFollowersUseCase
 import com.chisw.githubuserssearch.domain.usecase.GetUserReposUseCase
 import com.chisw.githubuserssearch.presentation.view_model.base.BaseViewModelImpl
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
@@ -41,12 +39,12 @@ class UserDetailedViewModelImpl(
         }
     }
 
-    private fun getReposAsync() = GlobalScope.async(Dispatchers.Main) {
+    private suspend fun getReposAsync() = viewModelScope.async {
         val userRepos = userReposUseCase(GetUserReposUseCase.Params.withParams(masterUser.login))
         userRepos.getOrNull()
     }
 
-    private fun getFollowersAsync() = GlobalScope.async(Dispatchers.Main) {
+    private suspend fun getFollowersAsync() = viewModelScope.async {
         val userFollowers =
             userFollowersUseCase(GetUserFollowersUseCase.Params.withParams(masterUser.login))
         userFollowers.getOrNull()
